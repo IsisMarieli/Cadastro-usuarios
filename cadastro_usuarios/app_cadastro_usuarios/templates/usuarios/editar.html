@@ -15,9 +15,14 @@
 
 <body>
     <nav style="background-color: #547bb1 !important; width: 100%;" class="navbar">
+        <a class="navbar-brand" href="{% url 'home' %}" style="color: #D1DAE6;">
+            <img src="https://img.icons8.com/?size=100&id=7695&format=png&color=D1DAE6" width="30" height="30"
+                alt="Ícone de adicionar usuário">
+            Cadastrar Usuários
+        </a>
         <a class="navbar-brand" href="{% url 'listagem_usuarios' %}" style="color: #D1DAE6;">
             <img src="https://img.icons8.com/?size=100&id=7695&format=png&color=D1DAE6" width="30" height="30"
-                alt="Ícone de visualizar usuário">
+                alt="Ícone de adicionar usuário">
             Visualizar Usuários
         </a>
     </nav>
@@ -46,7 +51,7 @@
                     <option value="Consultoria Técnica">Consultoria Técnica</option>
                 </select>
             </div>
-            <button class="btn" style="background-color: #547bb1; color: #D1DAE6;">Cadastrar</button>
+            <button class="btn" style="background-color: #547bb1; color: #D1DAE6;">Atualizar</button>
         </form>
     </div>
     <!-- Optional JavaScript -->
