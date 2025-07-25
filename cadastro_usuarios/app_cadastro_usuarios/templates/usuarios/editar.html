@@ -16,39 +16,41 @@
 <body>
     <nav style="background-color: #547bb1 !important; width: 100%;" class="navbar">
         <a class="navbar-brand" href="{% url 'home' %}" style="color: #D1DAE6;">
-            <img src="https://img.icons8.com/?size=100&id=7695&format=png&color=D1DAE6" width="30" height="30"
-                alt="Ícone de adicionar usuário">
+            <img src="https://img.icons8.com/?size=100&id=qPTvQex22297&format=png&color=D1DAE6" width="30" height="30"
+                alt="Ícone de adiconar usuário">
             Cadastrar Usuários
         </a>
         <a class="navbar-brand" href="{% url 'listagem_usuarios' %}" style="color: #D1DAE6;">
             <img src="https://img.icons8.com/?size=100&id=7695&format=png&color=D1DAE6" width="30" height="30"
-                alt="Ícone de adicionar usuário">
+                alt="Ícone de visualizar usuário">
             Visualizar Usuários
         </a>
     </nav>
 
     <div class="container" style="max-width: 400px; margin-top: 30px;">
-        <h2 class="text-center" style="color: #547bb1;">Cadastro de Usuários TI</h2>
-        <form action="{% url 'listagem_usuarios' %}" method="post" class="d-flex flex-column gap-2">
+        <h2 class="text-center" style="color: #547bb1;">Editar Usuário</h2>
+
+        <form action="{% url 'editar_usuario' usuario.id_usuario %}" method="post" class="d-flex flex-column gap-2">
             {% csrf_token %}
-            <input name="nome" class="form-control mb-2" type="text" placeholder="Nome">
-            <input name="sobrenome" class="form-control mb-2" type="text" placeholder="Sobrenome">
-            <input name="email" class="form-control mb-2" type="text" placeholder="E-mail">
+            <input name="nome" class="form-control mb-2" type="text" placeholder="Nome" value="{{ usuario.nome }}">
+            <input name="sobrenome" class="form-control mb-2" type="text" placeholder="Sobrenome"
+                value="{{ usuario.sobrenome }}">
+            <input name="email" class="form-control mb-2" type="text" placeholder="E-mail" value="{{ usuario.email }}">
 
             <div class="form-group">
                 <label for="exampleFormControlSelect1" style="color: #547bb1;">Área de Atuação</label>
                 <select name="area_atuacao" class="form-control" id="exampleFormControlSelect1">
-                    <option value="Desenvolvimento">Desenvolvimento</option>
-                    <option value="Inteligência Artificial">Inteligência Artificial</option>
-                    <option value="Segurança da Informação">Segurança da Informação</option>
-                    <option value="Infraestrutura">Infraestrutura</option>
-                    <option value="Mobile">Mobile</option>
-                    <option value="Internet das Coisas (IoT)">Internet das Coisas (IoT)</option>
-                    <option value="Engenharia de Dados">Engenharia de Dados</option>
-                    <option value="Administração de Sistemas">Administração de Sistemas</option>
-                    <option value="Suporte Técnico">Suporte Técnico</option>
-                    <option value="Gestão de TI">Gestão de TI</option>
-                    <option value="Consultoria Técnica">Consultoria Técnica</option>
+                    <option value="Desenvolvimento" {% if usuario.area_atuacao == "Desenvolvimento" %}selected{% endif %}>Desenvolvimento</option>
+                    <option value="Inteligência Artificial" {% if usuario.area_atuacao == "Inteligência Artificial"%}selected{% endif %}>Inteligência Artificial</option>
+                    <option value="Segurança da Informação" {% if usuario.area_atuacao == "Segurança da Informação"%}selected{% endif %}>Segurança da Informação</option>
+                    <option value="Infraestrutura" {% if usuario.area_atuacao == "Infraestrutura" %}selected{% endif %}>Infraestrutura</option>
+                    <option value="Mobile" {% if usuario.area_atuacao == "Mobile" %}selected{% endif %}>Mobile</option>
+                    <option value="Internet das Coisas (IoT)" {% if usuario.area_atuacao == "Internet das Coisas (IoT)"%}selected{% endif %}>Internet das Coisas (IoT)</option>
+                    <option value="Engenharia de Dados" {% if usuario.area_atuacao == "Engenharia de Dados" %}selected{%endif %}>Engenharia de Dados</option>
+                    <option value="Administração de Sistemas" {% if usuario.area_atuacao == "Administração de Sistemas"%}selected{% endif %}>Administração de Sistemas</option>
+                    <option value="Suporte Técnico" {% if usuario.area_atuacao == "Suporte Técnico" %}selected{% endif %}>Suporte Técnico</option>
+                    <option value="Gestão de TI" {% if usuario.area_atuacao == "Gestão de TI" %}selected{% endif %}>Gestãode TI</option>
+                    <option value="Consultoria Técnica" {% if usuario.area_atuacao == "Consultoria Técnica" %}selected{%endif %}>Consultoria Técnica</option>
                 </select>
             </div>
             <button class="btn" style="background-color: #547bb1; color: #D1DAE6;">Atualizar</button>

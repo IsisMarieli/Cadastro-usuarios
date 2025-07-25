@@ -8,5 +8,7 @@ urlpatterns = [
     # usuarios.com/usuarios
     path('usuarios/', views.usuarios, name='listagem_usuarios'),
     # usuarios.com/editar
-    path('editar/', views.usuarios, name='editar_usuario'),
+    path('editar/<uuid:id>/', views.editar_usuario, name='editar_usuario'),
+    # usuarios.com/excluir
+    path('excluir/<uuid:id>/', views.excluir_usuario, name='excluir_usuario'),
 ]
